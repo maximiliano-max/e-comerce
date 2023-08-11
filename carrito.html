@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="icon" href="./escudo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./carrito.css">
+</head>
+<body>
+    <header>
+        <div class="cabecera">
+            <img class="escudo" src="./assets/imagenes/escudo.jpg">
+            <img class="escudo1" src="./assets/imagenes/escudo.jpg">
+            <h1>Carrito De Compras</h1>
+        </div>
+        
+        
+        <nav>
+            <ul class="menu">
+              <li><a class="link" href="index.html">Inicio</a></li>
+              <li><a class="link" href="./carrito.html">Carrito</a></li>
+              <li><a class="link" href="./contacto.html">Contacto</a></li>
+            </ul>
+          </nav>
+        </header>
+        <main>
+            <section class="cart">
+                <h2>Productos en el Carrito:</h2>
+                <ul id="lista-carrito">
+                      
+                </ul>
+                <button class="comprar" onclick="completarCompra()">Comprar</button>
+               
+            </section>
+          
+        </main>
+        <div >
+            <img class="banner" src="assets/imagenes/banner.jpg">
+          </div>
+    <footer>
+        <p>Todos los derechos reservados &COPY; 2023 E-commerces Tienda Bostera Online</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', mostrarCarrito);
+
+    //funcion para mostrar los productos en la pagina del carrito carrito    
+        function mostrarCarrito() {
+            let carrito =JSON.parse(localStorage.getItem('carrito')) || [];
+            let listaCarrito = document.getElementById('lista-carrito');
+
+            listaCarrito.innerHTML = '';
+            carrito.forEach((producto, index) => {
+               let li = document.createElement('li');
+            li.textContent = `${producto.nombre}
+            - ${producto.precio}`;
+        //boton para borra el producto
+            let botonBorrar = document.createElement
+            ('button');
+            botonBorrar.textContent = 'borrar';
+            botonBorrar.addEventListener('click', () => {
+                borrarProducto(index);
+            })
+            li.appendChild(botonBorrar);
+            listaCarrito.appendChild(li)
+            });
+        }
+                    //funcion para borrar un producto del carrito
+        function borrarProducto(index){
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito()
+        }
+
+        //funcion para completar la compra y verla en el carrito
+        function completarCompra(){
+            alert(`¡Compra completada con exito! Gracias por tu compra.`);
+            localStorage.removeItem('carrito');
+            mostrarCarrito();
+        }
+    </script>
+</body>
+</html>

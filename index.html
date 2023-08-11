@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>Tienda Bostera Online</title>
+    <link rel="icon" href="./escudo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div class="imgfondo">
+  <headeer>
+    <div class="cabecera">
+    <img class="escudo" src="./assets/imagenes/escudo.jpg">
+    <img class="escudo1" src="./assets/imagenes/escudo.jpg">
+    <h1>Boca<span> Shop</span></h1>
+  </div>
+    <nav>
+      <ul class="menu">
+        <li><a class="link" href="index.html">Inicio</a></li>
+        <li><a class="link" href="./carrito.html">Carrito</a></li>
+        <li><a class="link" href="./contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    
+  </headeer>   
+  <main class="producto-flex">
+    <div class="producto">
+      <img class="producto-img" src="assets/imagenes/brasero.jpg" alt="brasero">
+      <h3>Brasero Bostero</h3>
+      <p>Precio: $5000</p>
+      <button class="boton" onclick="agregarAlCarrito('Brasero Bostero', 5000)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img class="producto-img" src="assets/imagenes/parrilla.jpg" alt="brasero">
+      <h3>Parrilla Bostera</h3>
+      <p>Precio: $5000</p>
+      <button class="boton" onclick="agregarAlCarrito('Parrilla Bostera', 5000)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img class="producto-img" src="assets/imagenes/miniparri.jpg" alt="brasero">
+      <h3>Mini parrilla Bostera</h3>
+      <p>Precio: $5000</p>
+      <button class="boton" onclick="agregarAlCarrito('Mini Parrilla Bostera', 5000)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img class="producto-img" src="assets/imagenes/parriport.jpg" alt="brasero">
+      <h3>Parrilla Portable Bostera</h3>
+      <p>Precio: $5000</p>
+      <button class="boton" onclick="agregarAlCarrito('Parrilla Portable Bostera', 5000)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img class="producto-img" src="assets/imagenes/setcub.jpg" alt="brasero">
+      <h3>Set Cubiertos Bostero</h3>
+      <p>Precio: $5000</p>
+      <button class="boton" onclick="agregarAlCarrito('Set Cubiertos Bostero', 5000)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img class="producto-img" src="assets/imagenes/delantal.jpeg" alt="brasero">
+      <h3>Delantal Bostero</h3>
+      <p>Precio: $5000</p>
+      <button class="boton" onclick="agregarAlCarrito('Delantal Bostero', 5000)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img class="producto-img" src="assets/imagenes/matero.jpg" alt="brasero">
+      <h3>Set de Mate Bostero</h3>
+      <p>Precio: $5000</p>
+      <button class="boton" onclick="agregarAlCarrito('Set de Mate Bostero', 5000)">Agregar al carrito</button>
+    </div>
+    </main>
+</div>
+<div >
+  <img class="banner" src="assets/imagenes/banner.jpg">
+</div>
+  <footer>
+    <p>Todos los derechos reservados &COPY; 2023 E-commerces Tienda Bostera Online</p>
+  </footer> 
+  <script>
+    function agregarAlCarrito(nombre, precio){
+      let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      carrito.push({nombre, precio});
+      localStorage.setItem('carrito', JSON.stringify
+      (carrito));
+      alert(`El producto "${nombre}" se agrego al carrito`)
+    }
+  </script> 
+</body>
+</html>
